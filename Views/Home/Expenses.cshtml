@@ -7,6 +7,9 @@
 <div class="text-center">
     <h1 class="display-4">Expenses</h1>
     <br/>
+    <hr/>
+    <a asp-asp-controller="Home" asp-action="CreateEditExpense" class="btn btn-secondary">Create new</a>
+    <br/>
     <table class="table">
         <thead>
             <tr>
@@ -18,6 +21,9 @@
                 </th>
                 <th>
                     Description
+                </th>
+                <th>
+                    Actions
                 </th>
             </tr>
         </thead>
@@ -35,9 +41,22 @@
                     <td>
                        @expense.Description
                     </td>
+                    <td>
+                       <a asp-controller="Home" 
+                            asp-action="CreateEditExpense" asp-route-id="@expense.Id">
+                            Edit
+                        </a>
+                       <a asp-controller="Home" 
+                            asp-action="DeleteExpense" asp-route-id="@expense.Id" >
+                            Delete
+                        </a>  
+                    </td>
                 </tr>
                 }
             }
         </tbody>
     </table>
+    <br />
+    <hr />
+     <h3>Total Expenses €@ViewBag.Expenses</h3>
 </div>
